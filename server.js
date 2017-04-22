@@ -9,6 +9,7 @@ var calculation = require('./calculationModule.js');
 
 // list of globals
 var port = 4000;
+var allCalculations = [];
 
 
 // uses
@@ -29,9 +30,22 @@ app.get( '/', function( req, res ){
   res.sendFile( path.resolve( 'public/views/index.html' ) );
 }); // end base url
 
+//add post
 app.post('/addCalc', function( req, res){
   console.log( '/addCalc hit:', req.body );
-  var currentCalc = calculationModule(req.body);
+  var currentCalc = calculation(req.body);
+  allCalculations = [];
+  allCalculations.push(currentCalc);
   console.log( 'calculation:', currentCalc );
   res.send( 200 );
 });//end addCalc
+
+
+//add GET
+app.get('/sum', function ( req, res){
+  console.log('/sum hit');
+  var responseObject = {
+    sum : allCalculations
+  }; // end responseObject
+  res.send(responseObject);
+});
