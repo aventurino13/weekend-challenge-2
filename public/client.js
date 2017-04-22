@@ -3,8 +3,10 @@ $(document).ready(onReady);
 
 function onReady (){
   console.log('in onReady function');
+
   $('.calcButtons').on('click', sendObject);
-  // $()
+
+  $('#clearButton').on('click', clearCalculation);
 
 }
 //create object to sendFile
@@ -50,3 +52,10 @@ function displayAnswer(){
     }//end success
   });//end ajax
 }//end display answer
+
+
+function clearCalculation (){
+  $( '#calcAnswer' ).empty();
+  $('.input').val('');
+
+}
