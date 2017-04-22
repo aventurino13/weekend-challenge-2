@@ -4,6 +4,7 @@ var express = require( 'express' );
 var app = express();
 var path = require( 'path' );
 var bodyParser = require( 'body-parser' );
+var calculation = require('./calculationModule.js');
 
 
 // list of globals
@@ -27,3 +28,10 @@ app.get( '/', function( req, res ){
   // send back index.html as response
   res.sendFile( path.resolve( 'public/views/index.html' ) );
 }); // end base url
+
+app.post('/addCalc', function( req, res){
+  console.log( '/addCalc hit:', req.body );
+  var currentCalc = calculationModule(req.body);
+  console.log( 'calculation:', currentCalc );
+  res.send( 200 );
+});//end addCalc

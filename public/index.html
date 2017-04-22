@@ -10,17 +10,18 @@
   <body>
     <h1>Calculator</h1>
     <div class="inputContainer">
-      <input type="text" placeholder="Type a number" value=""/>
-      <input type="text" placeholder="Type a number" value=""/>
+      <input id="input1" type="text" placeholder="Type a number" value=""/>
+      <input id="input2" type="text" placeholder="Type a number" value=""/>
     </div>
-    <div class="calcButtonContainer">
-      <button id="addButton">+</button>
-      <button id="subButton">-</button>
-      <button id="multButton">*</button>
-      <button id="addButton">/</button>
-    </div>
+    <div class="calcContainer">
+        <button class="calcButtons" id="add">+</button>
+        <button class="calcButtons" id="sub">-</button>
+        <button class="calcButtons" id="mult" data-name='mult'>*</button>
+        <button class="calcButtons" id="div" data-name='div'>/</button>
+      </div>
+
     <div id="calcAnswer">
-      
+
     </div>
     <div class="clearContainer">
       <button id="clearButton">Clear</button>
